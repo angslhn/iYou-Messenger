@@ -265,14 +265,6 @@ export const useChatStore = create<ChatState>((set, get) => ({
         if (activeConvIndex > 0) {
           const [activeConv] = updatedConversations.splice(activeConvIndex, 1);
           updatedConversations.unshift(activeConv);
-        } else if (activeConvIndex === -1) {
-          // Jika chat benar-benar baru, fetch ulang dari server
-          api
-            .get('/conversations/private')
-            .then(({ data }) => {
-              get().setConversations(data.conversations);
-            })
-            .catch(() => {});
         }
 
         return { conversations: updatedConversations };
@@ -309,6 +301,7 @@ export const useChatStore = create<ChatState>((set, get) => ({
         if (isOwnMessage || isTargetUserMessage) {
           set({ activeChat: { ...currentActive, id: conversationId } });
           get().markMessagesAsRead(conversationId);
+          get().fetchMessages(conversationId);
         }
       }
     });
@@ -334,7 +327,6 @@ export const useChatStore = create<ChatState>((set, get) => ({
       const myUserId = useAuthStore.getState().user?.id;
       if (!myUserId) return;
 
-      // Cari pesan ini di semua conversation
       set((state) => {
         const newMessagesByChat = { ...state.messagesByChat };
 
@@ -343,6 +335,11 @@ export const useChatStore = create<ChatState>((set, get) => ({
           if (msgIndex !== -1) {
             const updatedMessages = [...messages];
             const msg = updatedMessages[msgIndex]!;
+
+            // Dedup: jangan tambahkan jika readerId sudah ada
+            const alreadyRead = msg.reads?.some((r) => r.user_id === readerId);
+            if (alreadyRead) break;
+
             updatedMessages[msgIndex] = {
               ...msg,
               reads: [...(msg.reads || []), { user_id: readerId, read_at: readAt }],

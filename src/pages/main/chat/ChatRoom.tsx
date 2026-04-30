@@ -40,9 +40,9 @@ export default function ChatRoom(): JSX.Element {
   const rawMessages = activeChat ? messagesByChat[activeChat.id] || [] : [];
 
   useEffect(() => {
-    if (activeChat?.id && activeChat.id !== '') {
-      fetchMessages(activeChat.id);
-    }
+    if (!activeChat?.id || activeChat.id === '') return;
+
+    fetchMessages(activeChat.id);
   }, [activeChat?.id, fetchMessages]);
 
   useEffect(() => {
@@ -75,14 +75,20 @@ export default function ChatRoom(): JSX.Element {
   const handleSend = (message: string, replyToId?: string) => {
     if (!activeChat) return;
 
+    let payload: { receiverId?: string; conversationId?: string };
+
+    if (activeChat.id && activeChat.id !== '') {
+      payload = { conversationId: activeChat.id };
+    } else if (activeChat.type === 'private' && activeChat.target_user_id) {
+      payload = { receiverId: activeChat.target_user_id };
+    } else {
+      payload = { conversationId: activeChat.id };
+    }
+
     ws.send('message:send', {
       content: message,
       replyToMessageId: replyToId || undefined,
-      ...(activeChat.type === 'private'
-        ? activeChat.target_user_id
-          ? { receiverId: activeChat.target_user_id }
-          : { conversationId: activeChat.id }
-        : { conversationId: activeChat.id }),
+      ...payload,
     });
 
     setReplyTo(null);
