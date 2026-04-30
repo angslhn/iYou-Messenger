@@ -1,0 +1,63 @@
+@import url('./fonts.css');
+
+@import 'tailwindcss';
+
+@theme {
+  --breakpoint-xxs: 20rem;
+  --breakpoint-xs: 22.5rem;
+  --breakpoint-s: 24.375rem;
+  --breakpoint-s-plus: 26.875rem;
+  --breakpoint-s-medium: 28.125rem;
+  --breakpoint-s-large: 31.25rem;
+  --breakpoint-s-extra-large: 34.375rem;
+  --color-raisin-black: #161616;
+  --color-dark-charcoal: #141414;
+  --color-ebony-light: #2a2a2a;
+  --color-dark-deep: #1f1f1f;
+  --color-spanish-gray: #888888;
+  --color-platinum: #e8e8e8;
+  --color-night: #0e0e0e;
+  --font-dm-sans: 'DM Sans', sans-serif;
+}
+
+@layer base {
+  * {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+  *::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+body {
+  @apply bg-night;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.animate-fade-in {
+  animation: fade-in 0.15s ease-out;
+}
+
+@keyframes slide-up {
+  from {
+    transform: translateY(100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+.animate-slide-up {
+  animation: slide-up 0.28s cubic-bezier(0.32, 0.72, 0, 1);
+}

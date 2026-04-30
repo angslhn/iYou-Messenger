@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="UTF-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+
+    <title>iYou Messenger</title>
+    <meta
+      name="description"
+      content="Real-time messaging, group conversations, and stories. Stay connected anywhere."
+    />
+
+    <meta name="theme-color" content="#0e0e0e" />
+    <meta name="msapplication-TileColor" content="#0e0e0e" />
+
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="iYou" />
+    <meta name="robots" content="noindex, nofollow" />
+
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="iYou Messenger" />
+    <meta
+      property="og:description"
+      content="Seamless, real-time communication with anyone, anywhere."
+    />
+    <meta property="og:image" content="/og-image.jpg" />
+    <meta property="og:url" content="https://iyou.vercel.app" />
+    <style>
+      body,
+      html {
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        height: 100%;
+        background-color: #0e0e0e;
+        overflow: hidden;
+        overscroll-behavior-y: none;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+      }
+      
+      #app {
+        width: 100%;
+        height: 100%;
+      }
+      
+      input,
+      textarea,
+      select {
+        font-size: 16px;
+      }
+    </style>
+  </head>
+  <body>
+    <noscript>
+      <div style="color: #f0f0f0; text-align: center; padding: 2rem; font-family: sans-serif">
+        You need to enable JavaScript to run iYou Messenger.
+      </div>
+    </noscript>
+    <div id="app"></div>
+    <script type="module" src="/src/index.tsx"></script>
+  </body>
+</html>
