@@ -188,10 +188,7 @@ export default function AddPhone({ onBack }: Props): JSX.Element {
       <div className="px-4 w-full flex flex-col items-center">
         <form onSubmit={handleSubmitForm} className="w-full flex flex-col gap-6 py-6">
           <div className="relative flex flex-col gap-1">
-            <label
-              htmlFor="phone"
-              className="ml-2 font-semibold text-[1.15rem] text-platinum/85 tracking-wide"
-            >
+            <label htmlFor="phone" className="ml-2 font-semibold text-platinum/85 tracking-wide">
               Phone Number
             </label>
             <input

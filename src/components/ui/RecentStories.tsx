@@ -139,7 +139,7 @@ export default function RecentStories(): JSX.Element | null {
                   <FriendStoryCircle
                     data={{
                       thumbnail: group.stories[0]?.media_url ?? '',
-                      fullname: group.fullname || group.username,
+                      name: group.fullname ?? group.username,
                       isSeen: isGroupFullySeen,
                     }}
                   />

@@ -1,8 +1,10 @@
+import initialName from '../../helpers/initial-name';
+
 import type { JSX } from 'react';
 
 type Story = {
   thumbnail: string;
-  fullname: string;
+  name: string;
   isSeen: boolean;
 };
 
@@ -11,7 +13,7 @@ type Props = {
 };
 
 export default function FriendStoryCircle({ data }: Props): JSX.Element {
-  const { thumbnail, fullname, isSeen } = data;
+  const { thumbnail, name, isSeen } = data;
 
   return (
     <div className="flex flex-col shrink-0 items-center gap-1.5 w-16 group">
@@ -23,13 +25,13 @@ export default function FriendStoryCircle({ data }: Props): JSX.Element {
           {thumbnail !== '' ? (
             <img
               src={thumbnail}
-              alt={`Story by ${fullname}`}
+              alt={`Story by ${name}`}
               className="size-full object-cover select-none"
               draggable={false}
             />
           ) : (
-            <span className="flex items-center justify-center h-full text-lg font-bold text-platinum/70 uppercase select-none">
-              {fullname.charAt(0)}
+            <span className="flex items-center justify-center h-full text-xl font-bold text-platinum/70 uppercase select-none">
+              {initialName(name)}
             </span>
           )}
         </div>
@@ -38,7 +40,7 @@ export default function FriendStoryCircle({ data }: Props): JSX.Element {
         className={`mt-0.5 text-[11px] select-none font-semibold text-center truncate w-full transition-colors 
         ${isSeen ? 'text-platinum/40' : 'text-platinum/85'}`}
       >
-        {fullname.split(' ')[0]}
+        {name.split(' ')[0]}
       </span>
     </div>
   );

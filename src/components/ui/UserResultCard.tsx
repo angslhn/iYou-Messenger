@@ -1,6 +1,7 @@
 import { useNavigate } from 'react-router-dom';
 
 import type { JSX } from 'react';
+import initialName from '../../helpers/initial-name';
 
 type Props = {
   user: {
@@ -32,16 +33,18 @@ export default function UserResultCard({ user, actionType, onAction }: Props): J
               className="w-full h-full object-cover rounded-full"
             />
           ) : (
-            <span className="font-bold text-[1.1rem] select-none text-platinum/85">
-              {user?.fullname?.charAt(0).toUpperCase() || user?.username?.charAt(0).toUpperCase()}
+            <span className="font-bold text-xl select-none text-platinum/85">
+              {initialName(user.fullname ?? user.username)}
             </span>
           )}
         </div>
         <div className="flex flex-col flex-1 min-w-0">
-          <span className="font-bold text-platinum/85 truncate leading-tight">
-            {user.fullname ?? user.username}
-          </span>
-          <span className="text-xs text-platinum/50 truncate">@{user.username}</span>
+          {user.fullname && (
+            <span className="font-bold text-platinum/85 truncate leading-tight">
+              {user.fullname}
+            </span>
+          )}
+          <span className="text-sm text-platinum/50 truncate">@{user.username}</span>
           {user.about && (
             <span className="text-xs text-platinum/40 truncate mt-0.5 italic">{user.about}</span>
           )}

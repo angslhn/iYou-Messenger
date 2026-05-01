@@ -17,6 +17,7 @@ import ArrowLeftIcon from '../../../components/icons/ArrowLeftIcon';
 import type { JSX } from 'react';
 import type { MessageWithSender } from '../../../components/chat/MessageList';
 import type { EditMessagePayload } from '../../../components/chat/MessageInput';
+import initialName from '../../../helpers/initial-name';
 
 export default function ChatRoom(): JSX.Element {
   const [menuOpen, setMenuOpen] = useState<boolean>(false);
@@ -110,8 +111,8 @@ export default function ChatRoom(): JSX.Element {
               {activeChat?.avatar_url ? (
                 <img src={activeChat.avatar_url} alt="avatar" className="size-full object-cover" />
               ) : (
-                <span className="font-semibold text-platinum/85 select-none">
-                  {activeChat?.name?.charAt(0).toUpperCase() || '?'}
+                <span className="font-semibold text-xl text-platinum/85 select-none">
+                  {initialName(activeChat?.name ?? '')}
                 </span>
               )}
             </div>

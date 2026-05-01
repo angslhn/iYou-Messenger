@@ -181,7 +181,7 @@ export default function FindFriendSheet({ isOpen, onClose }: Props): JSX.Element
                 </svg>
                 <input
                   type="text"
-                  placeholder="e.g. septian_dev"
+                  placeholder="Search..."
                   value={usernameQuery}
                   onChange={(e) => {
                     setUsernameQuery(e.target.value);
@@ -196,7 +196,7 @@ export default function FindFriendSheet({ isOpen, onClose }: Props): JSX.Element
                 />
               </div>
               <span className="px-1 text-xs text-platinum/40">
-                Minimum 3 characters. Up to 20 results will be shown.
+                A search for matching usernames will be shown.
               </span>
             </div>
             <SubmitButton label="Search" mt={0} is_loading={usernameLoading} />
@@ -237,13 +237,13 @@ export default function FindFriendSheet({ isOpen, onClose }: Props): JSX.Element
             </p>
             <input
               type="tel"
-              placeholder="+6281234567890"
+              placeholder="Search..."
               value={phone}
               onChange={(e) => setPhone(e.target.value)}
               className="h-12 outline-none rounded-xl px-4 bg-dark-deep border border-ebony-light text-platinum/85 placeholder:text-platinum/35 text-sm tracking-wide focus:border-platinum/40 transition-all"
             />
             <span className="px-1 text-xs text-platinum/40">
-              Start with country code, e.g. +62 for Indonesia
+              Start with country code, e.g. +44 for United Kingdom
             </span>
           </div>
           <SubmitButton label="Find Friend" mt={0} is_loading={phoneLoading} />
@@ -272,6 +272,9 @@ export default function FindFriendSheet({ isOpen, onClose }: Props): JSX.Element
               Enter the 8-character PIN from your friend
             </p>
             <CodeInput type="pin" length={8} onComplete={(code) => setPin(code)} boxSize="sm" />
+            <span className="px-1 text-xs text-platinum/40">
+              Users with matching PINs will be shown.
+            </span>
           </div>
           <SubmitButton label="Find Friend" mt={0} is_loading={pinLoading} />
           {pinResult && (

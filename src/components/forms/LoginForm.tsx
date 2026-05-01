@@ -1,9 +1,11 @@
 import axios from 'axios';
-import api from '../../lib/axios';
-
-import { useEffect, useState } from 'react';
-import { useRedirect } from '../../hooks/useRedirect';
 import { Link } from 'react-router-dom';
+import { useEffect, useState } from 'react';
+
+import { useAuthStore } from '../../stores/useAuthStore';
+import { useRedirect } from '../../hooks/useRedirect';
+
+import api from '../../lib/axios';
 
 import * as Validation from '../../validators/auth.validator';
 
@@ -27,6 +29,8 @@ export default function LoginForm(): JSX.Element {
   const [loading, setLoading] = useState<boolean>(false);
 
   const navigate = useRedirect();
+
+  const checkSession = useAuthStore((state) => state.checkSession);
 
   useEffect(() => {
     const hasError = Object.values(errors).some((val) => val !== '');
@@ -58,7 +62,10 @@ export default function LoginForm(): JSX.Element {
         data: { redirect },
       } = await api.post('/auth/login', form);
 
-      if (redirect) navigate(redirect);
+      if (redirect) {
+        await checkSession();
+        navigate(redirect);
+      }
     } catch (err) {
       if (axios.isAxiosError(err)) {
         const email = err.response?.data?.email;

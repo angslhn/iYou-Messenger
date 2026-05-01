@@ -19,6 +19,7 @@ import SkeletonItem from '../../../components/ui/SkeletonItem';
 
 import type { JSX, MouseEvent } from 'react';
 import type { ConversationResponse } from '../../../@types/globals';
+import initialName from '../../../helpers/initial-name';
 
 export type ChatItem = {
   id: string;
@@ -258,8 +259,8 @@ export default function Chat(): JSX.Element {
             className="w-full h-full object-cover rounded-full"
           />
         ) : (
-          <span className="font-bold text-[1.1rem] select-none text-platinum/85">
-            {chat.name.charAt(0).toUpperCase()}
+          <span className="font-bold text-3xl select-none text-platinum/85">
+            {initialName(chat.name)}
           </span>
         )}
       </div>

@@ -172,10 +172,10 @@ export default function GroupProfile(): JSX.Element {
       </nav>
       <div className="flex-1 overflow-y-auto [scrollbar-width:none]">
         <div className="flex flex-col items-center gap-2 py-4 px-5 border-b border-ebony-light">
-          <div className="size-24 flex justify-center items-center rounded-full bg-dark-deep border-2 border-ebony-light">
+          <div className="size-24 flex justify-center items-center rounded-full bg-dark-deep border-2 border-ebony-light shrink-0">
             {groupInfo?.name && !groupInfo.avatar_url ? (
-              <span className="font-bold text-3xl text-platinum/85 select-none" aria-hidden="true">
-                {groupInfo.name.charAt(0)}
+              <span className="font-bold text-4xl text-platinum/85 select-none" aria-hidden="true">
+                {initialName(groupInfo.name ?? '')}
               </span>
             ) : (
               <img

@@ -146,19 +146,19 @@ export default function Account(): JSX.Element {
   return (
     <RootLayout>
       <MainLayout>
-        <div className="pb-28">
+        <div className="pb-4">
           {isLoading ? (
             <SkeletonItem type="account" />
           ) : (
             <>
               <div className="flex flex-col flex-1 min-w-0 items-center gap-1.5 py-6 border-b border-ebony-light">
-                <div className="relative size-25 flex justify-center items-center rounded-full bg-dark-deep border-2 border-ebony-light shadow-inner overflow-hidden">
+                <div className="relative size-25 flex justify-center items-center rounded-full shrink-0 bg-dark-deep border-2 border-ebony-light shadow-inner overflow-hidden">
                   {user?.fullname && !user.avatar_url ? (
                     <span
                       className="font-bold text-4xl text-platinum/85 select-none"
                       aria-hidden="true"
                     >
-                      {initialName(user.fullname)}
+                      {initialName(user.fullname ?? user.username)}
                     </span>
                   ) : (
                     <img

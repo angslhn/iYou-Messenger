@@ -51,10 +51,7 @@ export default function ChangeUsername({ onBack }: Props): JSX.Element {
       <div className="px-4 w-full flex flex-col items-center">
         <form onSubmit={handleSubmit} className="w-full flex flex-col gap-4 py-6">
           <div className="flex flex-col gap-1">
-            <label
-              htmlFor="username"
-              className="ml-2 font-semibold text-[1.15rem] text-platinum/85 tracking-wide"
-            >
+            <label htmlFor="username" className="ml-2 font-semibold text-platinum/85 tracking-wide">
               Username
             </label>
             <input

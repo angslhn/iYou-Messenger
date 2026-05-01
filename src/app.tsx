@@ -28,6 +28,7 @@ import Story from './pages/main/Story';
 import Friend from './pages/main/Friend';
 import Account from './pages/main/account/Account';
 import TooSmallViewport from './pages/other/TooSmallViewport';
+import TooShortViewport from './pages/other/TooShortViewport';
 import NotSupportedViewport from './pages/other/NotSupportedViewport';
 
 import ConfirmAlert from './components/ui/ConfirmAlert';
@@ -36,20 +37,24 @@ import type { JSX } from 'react';
 
 export default function App(): JSX.Element {
   const [width, setWidth] = useState<number>(typeof window !== 'undefined' ? window.innerWidth : 0);
+  const [height, setHeight] = useState<number>(
+    typeof window !== 'undefined' ? window.screen.height : 0,
+  );
 
   const { isMobile } = useDevice();
   const { checkSession } = useAuthStore();
   const { fetchInitialCounts } = useSocialStore();
 
   useEffect(() => {
-    const checkWidth = () => {
+    const checkViewport = () => {
       setWidth(window.innerWidth);
+      setHeight(window.screen.height);
     };
 
-    window.addEventListener('resize', checkWidth);
+    window.addEventListener('resize', checkViewport);
 
     return () => {
-      window.removeEventListener('resize', checkWidth);
+      window.removeEventListener('resize', checkViewport);
     };
   }, []);
 
@@ -73,6 +78,10 @@ export default function App(): JSX.Element {
 
   if (width < 320) {
     return <TooSmallViewport />;
+  }
+
+  if (height < 430) {
+    return <TooShortViewport />;
   }
 
   return (

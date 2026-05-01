@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 
 import api from '../../lib/axios';
 import BottomSheet from './BottomSheet';
+import initialName from '../../helpers/initial-name';
 
 import type { JSX } from 'react';
 
@@ -98,7 +99,9 @@ export default function StoryViewersSheet({ isOpen, storyId, onClose }: Props): 
                   {v.avatar_url ? (
                     <img src={v.avatar_url} alt={v.username} className="size-full object-cover" />
                   ) : (
-                    <span>{v.username.charAt(0).toUpperCase()}</span>
+                    <span className="font-bold text-xl select-none text-platinum/85">
+                      {initialName(v.fullname ?? v.username)}
+                    </span>
                   )}
                 </div>
                 <div className="flex flex-col flex-1">

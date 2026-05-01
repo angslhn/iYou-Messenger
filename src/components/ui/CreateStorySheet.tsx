@@ -174,7 +174,7 @@ export default function CreateStorySheet({ isOpen, onClose }: Props): JSX.Elemen
       {tab === 'text' && (
         <div className="flex flex-col gap-4">
           <div
-            className="relative w-full aspect-9/16 max-h-64 rounded-2xl flex items-center justify-center overflow-hidden transition-colors"
+            className="hidden [@media(min-height:760px)]:flex relative w-full aspect-9/16 max-h-64 rounded-2xl items-center justify-center overflow-hidden transition-colors"
             style={{ backgroundColor: bgColor }}
           >
             {text ? (

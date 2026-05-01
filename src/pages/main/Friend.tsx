@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 import api from '../../lib/axios';
+import initialName from '../../helpers/initial-name';
 import ws from '../../lib/ws';
 
 import { useSocialStore } from '../../stores/useSocialStore';
@@ -325,7 +326,7 @@ export default function Friend(): JSX.Element {
                   >
                     <div className="size-14 shrink-0 flex justify-center items-center rounded-full bg-dark-deep border border-ebony-light">
                       <span className="font-bold text-[1.1rem] select-none">
-                        {(data.user.fullname ?? data.user.username).charAt(0).toUpperCase()}
+                        {initialName(data.user.fullname ?? data.user.username)}
                       </span>
                     </div>
                     <div className="w-full min-w-0 flex items-center justify-between">

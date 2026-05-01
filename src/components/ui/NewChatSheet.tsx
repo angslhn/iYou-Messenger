@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { useChatStore } from '../../stores/useChatStore';
 
 import api from '../../lib/axios';
+import initialName from '../../helpers/initial-name';
 
 import BottomSheet from './BottomSheet';
 import EmptyState from './EmptyState';
@@ -130,7 +131,7 @@ export default function NewChatSheet({ isOpen, onClose }: Props): JSX.Element | 
                       <img src={avatar_url} alt="avatar" className="size-full object-cover" />
                     ) : (
                       <span className="font-bold text-xl text-platinum/70">
-                        {(fullname ?? username).charAt(0).toUpperCase()}
+                        {initialName(fullname ?? username)}
                       </span>
                     )}
                   </div>

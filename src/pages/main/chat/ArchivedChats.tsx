@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 import api from '../../../lib/axios';
+import initialName from '../../../helpers/initial-name';
 
 import { useChatStore } from '../../../stores/useChatStore';
 
@@ -224,8 +225,8 @@ export default function ArchivedChats(): JSX.Element {
                         className="w-full h-full object-cover rounded-full"
                       />
                     ) : (
-                      <span className="font-semibold text-[1.1rem] select-none">
-                        {chat.name.charAt(0).toUpperCase()}
+                      <span className="font-semibold text-3xl select-none">
+                        {initialName(chat.name)}
                       </span>
                     )}
                   </div>

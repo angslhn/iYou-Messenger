@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 import api from '../../../lib/axios';
+import initialName from '../../../helpers/initial-name';
 import ws from '../../../lib/ws';
 
 import { useChatStore } from '../../../stores/useChatStore';
@@ -230,7 +231,7 @@ export default function Group(): JSX.Element {
 
     try {
       await api.patch(`/conversations/${groupToArchive.id}/archive`, { value: newValue });
-      setRefreshTrigger((prev) => (prev += 1));
+      setRefreshTrigger((prev) => prev + 1);
     } catch {
       setGroups((prevGroups) =>
         prevGroups.map((g) => (g.id === groupToArchive.id ? { ...g, isArchived: !newValue } : g)),
@@ -315,8 +316,8 @@ export default function Group(): JSX.Element {
     >
       <div className="size-14 shrink-0 flex justify-center items-center rounded-full bg-dark-deep border border-ebony-light">
         {group.name && !group.avatar_url ? (
-          <span className="font-bold text-3xl text-platinum/85 select-none" aria-hidden="true">
-            {group.name.charAt(0)}
+          <span className="font-bold text-2xl text-platinum/85 select-none" aria-hidden="true">
+            {initialName(group.name ?? '')}
           </span>
         ) : (
           group.avatar_url && (

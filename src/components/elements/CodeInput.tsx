@@ -59,7 +59,7 @@ const CodeInput = ({ type, length = 4, onComplete, boxSize = 'md' }: Props) => {
   const handleTextChange = (value: string, index: number) => {
     const char = value.slice(-1);
 
-    let clearValue = char;
+    let clearValue;
 
     if (type === 'otp') {
       clearValue = char.replace(/[^0-9]/g, '');
@@ -126,7 +126,7 @@ const CodeInput = ({ type, length = 4, onComplete, boxSize = 'md' }: Props) => {
           ref={(ref) => {
             inputRefs.current[index] = ref as HTMLInputElement;
           }}
-          className={`text-center border-[0.05rem] border-platinum/70 font-bold text-platinum rounded-sm outline-none ${boxSize === 'sm' ? 'size-8.5 text-[0.95rem]' : 'size-10 text-[1.15rem]'}`}
+          className={`text-center border-[0.05rem] border-platinum/70 font-bold text-platinum rounded-sm outline-none ${{ sm: 'size-8 text-[0.95rem]', md: 'size-10 text-[1.15rem]' }[boxSize]}`}
         />
       ))}
     </div>

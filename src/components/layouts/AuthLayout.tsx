@@ -22,19 +22,9 @@ const descriptionOnPage = {
   reset_password: 'Set a strong, unique password to keep your account safe.',
 };
 
-const minHeight = {
-  login: 'min-h-150',
-  register: 'min-h-170',
-  verify: 'min-h-150',
-  forgot_password: 'min-h-150',
-  reset_password: 'min-h-150',
-};
-
 export default function AuthLayout({ children, is_page }: Props): JSX.Element {
   return (
-    <main
-      className={`hidden xxs:flex h-screen ${minHeight[is_page]} justify-center items-center overflow-y-auto text-primary bg-night`}
-    >
+    <main className="min-h-screen hidden xxs:flex py-10 justify-center items-center overflow-y-auto text-primary bg-night">
       <div className="w-full xs:max-w-90 s:max-w-97.5 px-4">
         <div className="flex flex-col gap-6">
           <div className="flex flex-col justify-center gap-1 font-dm-sans">

@@ -18,6 +18,7 @@ import SectionLayout from '../../../components/layouts/SectionLayout';
 
 import type { JSX } from 'react';
 import type { MessageWithSender } from '../../../components/chat/MessageList';
+import initialName from '../../../helpers/initial-name';
 
 export default function GroupRoom(): JSX.Element {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -136,8 +137,8 @@ export default function GroupRoom(): JSX.Element {
                   className="size-full object-cover"
                 />
               ) : (
-                <span className="font-semibold text-platinum/85 select-none">
-                  {activeChat?.name?.charAt(0).toUpperCase() || '?'}
+                <span className="font-semibold text-xl text-platinum/85 select-none">
+                  {initialName(activeChat?.name ?? '')}
                 </span>
               )}
             </div>

@@ -1,3 +1,4 @@
+import initialName from '../../helpers/initial-name';
 import BottomSheet from './BottomSheet';
 
 import type { JSX } from 'react';
@@ -63,13 +64,12 @@ export default function MessageInfoSheet({
                   {user?.avatar_url ? (
                     <img
                       src={user?.avatar_url}
-                      alt={`Avatar ${user?.fullname ?? user.username}`}
+                      alt={`Avatar ${user.fullname ?? user.username}`}
                       className="w-full h-full object-cover rounded-full"
                     />
                   ) : (
-                    <span className="font-bold text-[1.1rem] select-none text-platinum/85">
-                      {user?.fullname?.charAt(0).toUpperCase() ||
-                        user?.username?.charAt(0).toUpperCase()}
+                    <span className="font-bold text-xl select-none text-platinum/85">
+                      {initialName(user.fullname ?? user.username)}
                     </span>
                   )}
                 </div>

@@ -2,6 +2,8 @@ import Cropper from 'react-easy-crop';
 import { useState, useEffect, useRef } from 'react';
 
 import api from '../../lib/axios';
+import initialName from '../../helpers/initial-name';
+
 import { cropImageFromUI } from '../../lib/media';
 
 import BottomSheet from './BottomSheet';
@@ -121,7 +123,7 @@ export default function EditGroupSheet({
                 />
               ) : (
                 <span className="font-bold text-4xl text-platinum/85 select-none group-hover:opacity-70 transition-opacity">
-                  {name.charAt(0).toUpperCase()}
+                  {initialName(name)}
                 </span>
               )}
               <button

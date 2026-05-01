@@ -189,7 +189,6 @@ export default function ChangePhoneNumber({ onBack }: Props): JSX.Element {
         </button>
         <h1 className="font-semibold text-xl text-platinum/85">Change Phone Number</h1>
       </nav>
-
       <div className="px-4 w-full flex flex-col items-center">
         <form onSubmit={handleSubmitForm} className="w-full flex flex-col gap-6 py-6">
           <div className="flex flex-col gap-1">
@@ -210,10 +209,7 @@ export default function ChangePhoneNumber({ onBack }: Props): JSX.Element {
             />
           </div>
           <div className="relative flex flex-col gap-1">
-            <label
-              htmlFor="phone"
-              className="ml-2 font-semibold text-[1.15rem] text-platinum/85 tracking-wide"
-            >
+            <label htmlFor="phone" className="ml-2 font-semibold text-platinum/85 tracking-wide">
               New Phone Number
             </label>
             <input

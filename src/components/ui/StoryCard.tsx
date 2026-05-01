@@ -1,3 +1,5 @@
+import initialName from '../../helpers/initial-name';
+
 import type { JSX } from 'react';
 
 type Props = {
@@ -33,7 +35,9 @@ export default function StoryCard({ data }: Props): JSX.Element {
         {avatar ? (
           <img src={avatar} alt={name} className="size-full object-cover" />
         ) : (
-          <span>{name.charAt(0).toUpperCase()}</span>
+          <span className="font-bold text-xl select-none text-platinum/85">
+            {initialName(name)}
+          </span>
         )}
       </div>
       {count > 1 && (

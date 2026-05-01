@@ -106,10 +106,7 @@ export default function DeleteAccount({ onBack }: Props): JSX.Element {
             Enter your password to confirm account deletion.
           </p>
           <div className="relative flex flex-col gap-1">
-            <label
-              htmlFor="password"
-              className="ml-2 font-semibold text-[1.15rem] text-platinum/85 tracking-wide"
-            >
+            <label htmlFor="password" className="ml-2 font-semibold text-platinum/85 tracking-wide">
               Password
             </label>
             <input
@@ -132,7 +129,7 @@ export default function DeleteAccount({ onBack }: Props): JSX.Element {
               onClick={() => setView((prev) => !prev)}
               className="absolute right-3 bottom-3 hover:cursor-pointer"
             >
-              {view ? <EyeOpen /> : <EyeClosed />}
+              {view ? EyeOpen() : EyeClosed()}
             </button>
           </div>
           <SubmitButton label="Delete My Account" mt={3} is_loading={isLoading} />

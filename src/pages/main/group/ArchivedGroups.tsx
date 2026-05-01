@@ -15,6 +15,7 @@ import SkeletonItem from '../../../components/ui/SkeletonItem';
 import type { MouseEvent, JSX } from 'react';
 import type { ConversationResponse } from '../../../@types/globals';
 import type { GroupItem } from './Group';
+import initialName from '../../../helpers/initial-name';
 
 export default function ArchivedGroups(): JSX.Element {
   const navigate = useNavigate();
@@ -190,8 +191,8 @@ export default function ArchivedGroups(): JSX.Element {
     >
       <div className="size-14 shrink-0 flex justify-center items-center rounded-full bg-dark-deep border border-ebony-light">
         {group.name && !group.avatar_url ? (
-          <span className="font-bold text-3xl text-platinum/85 select-none" aria-hidden="true">
-            {group.name.charAt(0)}
+          <span className="font-bold text-2xl text-platinum/85 select-none" aria-hidden="true">
+            {initialName(group.name ?? '')}
           </span>
         ) : (
           group.avatar_url && (

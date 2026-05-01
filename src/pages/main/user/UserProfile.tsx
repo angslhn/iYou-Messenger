@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 
 import api from '../../../lib/axios';
+import initialName from '../../../helpers/initial-name';
 
 import { useNavigate, useParams } from 'react-router-dom';
 import { useAlertStore } from '../../../stores/useAlertStore';
@@ -116,7 +117,7 @@ export default function UserProfile({ showActions = true }: Props): JSX.Element 
         ) : (
           <>
             <div className="flex flex-col items-center gap-2 py-8 px-5 border-b border-ebony-light">
-              <div className="size-24 flex justify-center items-center rounded-full bg-dark-deep border-2 border-ebony-light">
+              <div className="size-24 flex justify-center items-center rounded-full bg-dark-deep border-2 border-ebony-light shrink-0">
                 {profile?.avatar_url && profile.fullname ? (
                   <img
                     src={profile.avatar_url}
@@ -124,9 +125,8 @@ export default function UserProfile({ showActions = true }: Props): JSX.Element 
                     className="w-full h-full object-cover rounded-full"
                   />
                 ) : (
-                  <span className="font-bold text-[1.1rem] select-none text-platinum/85">
-                    {profile?.fullname?.charAt(0).toUpperCase() ??
-                      profile?.username?.charAt(0).toUpperCase()}
+                  <span className="font-bold text-4xl select-none text-platinum/85">
+                    {initialName(profile?.fullname || profile?.username || '')}
                   </span>
                 )}
               </div>

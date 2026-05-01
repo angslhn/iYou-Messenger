@@ -209,7 +209,7 @@ export default function ChangeEmail({ onBack }: Props): JSX.Element {
           <div className="flex flex-col gap-1">
             <label
               htmlFor="current-email"
-              className="ml-2 font-semibold text-[1.15rem] text-platinum/85 tracking-wide"
+              className="ml-2 font-semibold text-platinum/85 tracking-wide"
             >
               Current Email
             </label>
@@ -226,7 +226,7 @@ export default function ChangeEmail({ onBack }: Props): JSX.Element {
           <div className="relative flex flex-col gap-1">
             <label
               htmlFor="new-email"
-              className="ml-2 font-semibold text-[1.15rem] text-platinum/85 tracking-wide"
+              className="ml-2 font-semibold text-platinum/85 tracking-wide"
             >
               New Email
             </label>

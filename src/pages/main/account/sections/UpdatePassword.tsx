@@ -145,10 +145,7 @@ export default function ChangePassword({ onBack }: Props): JSX.Element {
         <form onSubmit={handleSubmit} className="w-full flex flex-col gap-2 py-6">
           {fields.map(({ field, label, hint }) => (
             <div key={field} className="relative flex flex-col gap-1">
-              <label
-                htmlFor={field}
-                className="ml-2 font-semibold text-[1.15rem] text-platinum/85 tracking-wide"
-              >
+              <label htmlFor={field} className="ml-2 font-semibold text-platinum/85 tracking-wide">
                 {label}
               </label>
               <input
@@ -167,7 +164,9 @@ export default function ChangePassword({ onBack }: Props): JSX.Element {
                 className="h-12 outline-none rounded-xl font-semibold tracking-wide px-3 text-platinum/75 bg-dark-deep border-[0.05rem] border-ebony-light"
               />
               {hint && errors[field] === '' && (
-                <span className="absolute bottom-0 px-2 text-sm text-platinum/50">{hint}</span>
+                <span className="absolute bottom-0 px-2 xxs:text-xs xs:text-[0.81rem] s:text-sm text-nowrap text-platinum/50">
+                  {hint}
+                </span>
               )}
               <ErrorValue text={errors[field]} />
               <button

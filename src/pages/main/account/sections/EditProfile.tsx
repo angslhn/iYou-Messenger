@@ -126,7 +126,7 @@ export default function EditProfile({ onBack }: Props): JSX.Element {
       <div className="px-4 w-full flex flex-col items-center">
         <div className="w-full flex flex-col items-center justify-center gap-2 py-8 border-b border-ebony-light">
           <div
-            className="relative size-25 flex justify-center items-center rounded-full bg-dark-deep border-2 border-ebony-light shadow-inner hover:cursor-pointer group"
+            className="relative size-25 flex justify-center items-center shrink-0 rounded-full bg-dark-deep border-2 border-ebony-light shadow-inner hover:cursor-pointer group"
             onClick={() => fileInputRef.current?.click()}
           >
             {user?.fullname && !user.avatar_url ? (
@@ -160,7 +160,6 @@ export default function EditProfile({ onBack }: Props): JSX.Element {
               </svg>
             </button>
           </div>
-
           <span className="text-platinum/65">Tap to change photo</span>
           <input
             ref={fileInputRef}
@@ -172,10 +171,7 @@ export default function EditProfile({ onBack }: Props): JSX.Element {
         </div>
         <form onSubmit={handleSubmit} className="w-full flex flex-col gap-3 py-4">
           <div className="flex flex-col gap-1">
-            <label
-              htmlFor="fullname"
-              className="ml-2 font-semibold text-[1.15rem] text-platinum/85 tracking-wide"
-            >
+            <label htmlFor="fullname" className="ml-2 font-semibold text-platinum/85 tracking-wide">
               Fullname
             </label>
             <input
@@ -189,10 +185,7 @@ export default function EditProfile({ onBack }: Props): JSX.Element {
             />
           </div>
           <div className="flex flex-col gap-1">
-            <label
-              htmlFor="about"
-              className="ml-2 font-semibold text-[1.15rem] text-platinum/75 tracking-wide"
-            >
+            <label htmlFor="about" className="ml-2 font-semibold text-platinum/75 tracking-wide">
               About
             </label>
             <input
