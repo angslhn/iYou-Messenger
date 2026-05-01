@@ -8,7 +8,7 @@
 ![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)
 ![Zustand](https://img.shields.io/badge/Zustand-4A2B29?style=for-the-badge&logo=react&logoColor=white)
 
-iYou Messenger Web adalah aplikasi klien yang dirancang khusus untuk memberikan pengalaman pengguna yang setara dengan aplikasi _Native_ (iOS/Android). Berfokus pada filosofi **Mobile-First**, aplikasi ini sangat ringan dan responsif.
+iYou Messenger adalah aplikasi web klien antarmuka yang dirancang secara khusus untuk memberikan pengalaman pengguna (UX) yang identik dengan aplikasi seluler Native (iOS/Android). Dibangun dengan fondasi filosofi Mobile-First, aplikasi ini tidak hanya tampil sangat ringan dan responsif, tetapi juga sepenuhnya dioptimalkan untuk navigasi sentuh (touch-friendly), tata letak layar vertikal, serta pengelolaan ruang visual yang cerdas saat berhadapan dengan elemen sistem seperti virtual keyboard maupun address bar peramban.
 
 ---
 
