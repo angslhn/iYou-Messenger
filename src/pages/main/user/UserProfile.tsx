@@ -210,7 +210,7 @@ export default function UserProfile({ showActions = true }: Props): JSX.Element 
                   onClick={handleUnfriend}
                   className="flex items-center gap-4 py-3 border-b border-ebony-light active:opacity-70 transition-opacity hover:cursor-pointer text-left"
                 >
-                  <div className="size-10 shrink-0 flex justify-center items-center bg-orange-500/10 border border-orange-500/30 rounded-xl">
+                  <div className="size-10 shrink-0 flex justify-center items-center bg-dark-deep border border-ebony-light rounded-xl">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       viewBox="0 0 640 512"
